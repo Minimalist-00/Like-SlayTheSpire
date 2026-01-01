@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5444746839578488517}
   - component: {fileID: 8420269962374966428}
   - component: {fileID: 2484433296838205415}
+  - component: {fileID: 730378394092194601}
   m_Layer: 5
   m_Name: CardObj
   m_TagString: Untagged
@@ -79,6 +80,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &730378394092194601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3124874128764147242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b4ac7703c9748268846b069a194d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 7811894366580487504}
+  descriptionText: {fileID: 6657325228157163668}
+  icon: {fileID: 605268845025774582}
+  costText: {fileID: 4295855876498631686}
 --- !u!1 &3990878204895631256
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +419,7 @@ GameObject:
   - component: {fileID: 4596126641032920554}
   - component: {fileID: 7341460173268478407}
   m_Layer: 5
-  m_Name: Cost
+  m_Name: CostFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -478,7 +495,7 @@ GameObject:
   - component: {fileID: 4577369887619174656}
   - component: {fileID: 4295855876498631686}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
