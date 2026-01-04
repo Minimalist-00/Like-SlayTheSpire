@@ -24,8 +24,13 @@ public class BattleSystem : MonoBehaviour
   BattlePlayerDrawState playerDrawState;
   BattleCardSellectionState cardSellectionState;
 
-  // 外部からplayerDrawState変数を参照できるようにするプロパティを作る（Read-Only）
+  [SerializeField] Deck deck;
+  [SerializeField] Hand hand;
+
+  // 外部から参照できるようにするプロパティを作る（Read-Only）
   public BattlePlayerDrawState PlayerDrawState => playerDrawState;
+  public Deck Deck => deck;
+  public Hand Hand => hand;
 
   void Start()
   {

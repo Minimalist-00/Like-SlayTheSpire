@@ -1,18 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  List<CardObj> cardList = new List<CardObj>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  public void AddCard(CardObj cardObj)
+  {
+    cardList.Add(cardObj);
+    // 親をHandにする
+    cardObj.transform.SetParent(transform);
+    cardObj.gameObject.SetActive(true);
+  }
 }
