@@ -12,6 +12,7 @@ public class Hand : MonoBehaviour
     cardObj.transform.SetParent(transform);
     cardObj.gameObject.SetActive(true);
     ArrangeCards();
+    cardObj.OnEndDragAction += ArrangeCards;
   }
 
   // 手札に加えられたカードを整列させる
