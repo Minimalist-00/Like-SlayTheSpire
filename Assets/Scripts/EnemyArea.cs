@@ -1,16 +1,6 @@
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class EnemyArea : MonoBehaviour
 {
-  // Start is called before the first frame update
-  void Start()
-  {
-
-  }
-
-  // Update is called once per frame
-  void Update()
-  {
-
-  }
 }
