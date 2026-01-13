@@ -1,10 +1,16 @@
 using UnityEngine;
 
+
 public class EnemyGenerator : MonoBehaviour
 {
   [SerializeField] EnemyObj enemyPrefab;
   [SerializeField] Transform parent;
   [SerializeField] EnemyManager enemyManager;
+
+  public void Setup()
+  {
+    Spawn();
+  }
 
   EnemyObj Spawn()
   {

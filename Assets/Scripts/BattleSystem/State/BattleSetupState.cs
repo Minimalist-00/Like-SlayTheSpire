@@ -10,6 +10,7 @@ public class BattleSetupState : BattleStateBase
   {
     // 先にDeckを初期化
     Owner.Deck.Setup();
+    Owner.EnemyGenerator.Setup();
 
     // StateをPlayerDrawStateに変更する
     // Owner(BattleSetupState)のChangeStateメソッドを呼び出す。そしてPlayerDrawStateプロパティを引数として渡す

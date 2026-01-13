@@ -3,21 +3,6 @@ using UnityEngine;
 public class BattleSystem : MonoBehaviour
 {
 
-  // フェーズ（バトルの状態）の管理
-  // ・1.準備：setup：Deckを作る
-  // ・2.Playerのドローフェーズ:Deckからカードを5枚引く
-  // ・3.Playerのカード選択のフェーズ
-  // ・4.Playerのカード効果のフェーズ
-  // ・5.Enemyのフェーズ
-
-  // これらをステートパターンで管理する
-  // 利点：各フェーズの処理がクラスに分かれているので、編集がしやすい
-
-  // どうやって実装するの？
-  // ・状態の基底クラスを作る
-  // ・それぞれのクラスを作る
-  // ・状態の切り替えを行う関数を作る
-
   // 状態管理の変数をつくる
   BattleStateBase currentState;
   BattleSetupState setupState;
@@ -26,11 +11,13 @@ public class BattleSystem : MonoBehaviour
 
   [SerializeField] Deck deck;
   [SerializeField] Hand hand;
+  [SerializeField] EnemyGenerator enemyGenerator; 
 
   // 外部から参照できるようにするプロパティを作る（Read-Only）
   public BattlePlayerDrawState PlayerDrawState => playerDrawState;
   public Deck Deck => deck;
   public Hand Hand => hand;
+  public EnemyGenerator EnemyGenerator => enemyGenerator;
 
   void Start()
   {
