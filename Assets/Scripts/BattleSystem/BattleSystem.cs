@@ -39,6 +39,10 @@ public class BattleSystem : MonoBehaviour
   // 状態の切り替え
   public void ChangeState(BattleStateBase newState)
   {
+    if (currentState != null)
+    {
+      currentState.OnExit();
+    }
     currentState = newState;
     currentState.OnEnter();
   }

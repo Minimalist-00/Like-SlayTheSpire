@@ -15,5 +15,6 @@ public class BattlePlayerDrawState : BattleStateBase
       // Handにカードを渡す
       Owner.Hand.AddCard(drawCard);
     }
+    Owner.ChangeState(Owner.CardSellectionState);
   }
 }

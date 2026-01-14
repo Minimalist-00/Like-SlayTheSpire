@@ -10,4 +10,8 @@ public class BattleCardSellectionState : BattleStateBase
   {
     Debug.Log("Battle Card Sellection State");
   }
+  public override void OnExit()
+  {
+    Debug.Log("Battle Card Sellection State Exit");
+  }
 }
