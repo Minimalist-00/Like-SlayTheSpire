@@ -7,7 +7,8 @@ public class Deck : MonoBehaviour
   [SerializeField] CardObj cardObjPrefab;
   [SerializeField] Hand hand;
   List<CardObj> cardList = new List<CardObj>();
-  // Start is called before the first frame update
+  public bool IsEmpty => cardList.Count == 0;
+
   public void Setup()
   {
     for (int i = 0; i < 10; i++)
@@ -18,9 +19,11 @@ public class Deck : MonoBehaviour
     }
   }
 
-  void Update()
+  public void AddCard(CardObj cardObj)
   {
-
+    cardList.Add(cardObj);
+    cardObj.transform.SetParent(transform);
+    cardObj.gameObject.SetActive(false);
   }
 
   public CardObj DrawCard()

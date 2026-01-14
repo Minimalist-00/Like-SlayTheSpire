@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class DiscardArea : MonoBehaviour
 {
-    // 捨て札のカードを管理する
-    public List<CardObj> cards = new List<CardObj>();
+  // 捨て札のカードを管理する
+  public List<CardObj> cards = new List<CardObj>();
 
-    public void AddCard(CardObj cardObj)
+  public void AddCard(CardObj cardObj)
+  {
+    cards.Add(cardObj);
+    cardObj.transform.SetParent(transform);
+    cardObj.gameObject.SetActive(false);
+  }
+
+  // カードを全てデッキに戻す
+  public void ReturnCardsToDeck(Deck deck)
+  {
+    foreach (CardObj card in cards)
     {
-        cards.Add(cardObj);
-        cardObj.transform.SetParent(transform);
-        cardObj.gameObject.SetActive(false);
+      deck.AddCard(card);
     }
+    cards.Clear();
+  }
 }
