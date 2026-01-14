@@ -15,6 +15,7 @@ public class BattleSystem : MonoBehaviour
   [SerializeField] Deck deck;
   [SerializeField] Hand hand;
   [SerializeField] EnemyGenerator enemyGenerator;
+  [SerializeField] DiscardArea discardArea;
 
   // 外部から参照できるようにするプロパティを作る（Read-Only）
   public Deck Deck => deck;
@@ -23,6 +24,7 @@ public class BattleSystem : MonoBehaviour
   public BattleCardSellectionState CardSellectionState => cardSellectionState;
   public BattlePlayerDrawState PlayerDrawState => playerDrawState;
   public BattleEnemyTurnState EnemyTurnState => enemyTurnState;
+  public DiscardArea DiscardArea => discardArea;
 
   void Start()
   {

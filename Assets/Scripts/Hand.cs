@@ -29,4 +29,14 @@ public class Hand : MonoBehaviour
       cardList[i].transform.localPosition = new Vector3(x, 0, 0); //localPositionは親の位置が基準
     }
   }
+
+  // 全てのカードを捨て札に入れる
+  public void DiscardAllCards(DiscardArea discardArea)
+  {
+    foreach (CardObj card in cardList)
+    {
+      discardArea.AddCard(card);
+    }
+    cardList.Clear();
+  }
 }

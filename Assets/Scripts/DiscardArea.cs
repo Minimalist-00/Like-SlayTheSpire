@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class DiscardArea : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // 捨て札のカードを管理する
+    public List<CardObj> cards = new List<CardObj>();
 
-    // Update is called once per frame
-    void Update()
+    public void AddCard(CardObj cardObj)
     {
-        
+        cards.Add(cardObj);
+        cardObj.transform.SetParent(transform);
+        cardObj.gameObject.SetActive(false);
     }
 }
