@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleSystem : MonoBehaviour
@@ -8,16 +10,19 @@ public class BattleSystem : MonoBehaviour
   BattleSetupState setupState;
   BattlePlayerDrawState playerDrawState;
   BattleCardSellectionState cardSellectionState;
+  BattleEnemyTurnState enemyTurnState;
 
   [SerializeField] Deck deck;
   [SerializeField] Hand hand;
   [SerializeField] EnemyGenerator enemyGenerator;
 
   // 外部から参照できるようにするプロパティを作る（Read-Only）
-  public BattlePlayerDrawState PlayerDrawState => playerDrawState;
   public Deck Deck => deck;
   public Hand Hand => hand;
   public EnemyGenerator EnemyGenerator => enemyGenerator;
+  public BattleCardSellectionState CardSellectionState => cardSellectionState;
+  public BattlePlayerDrawState PlayerDrawState => playerDrawState;
+  public BattleEnemyTurnState EnemyTurnState => enemyTurnState;
 
   void Start()
   {
@@ -26,6 +31,7 @@ public class BattleSystem : MonoBehaviour
     setupState = new BattleSetupState(this);
     playerDrawState = new BattlePlayerDrawState(this);
     cardSellectionState = new BattleCardSellectionState(this);
+    enemyTurnState = new BattleEnemyTurnState(this);
 
     ChangeState(setupState);
   }
@@ -35,6 +41,17 @@ public class BattleSystem : MonoBehaviour
   {
     currentState = newState;
     currentState.OnEnter();
+  }
+
+  void Update()
+  {
+    currentState.OnUpdate();
+  }
+
+  public void OnTurnEndButton()
+  {
+    // 敵のターンに移行する
+    ChangeState(enemyTurnState);
   }
 
 }
