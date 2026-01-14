@@ -11,7 +11,7 @@ public class BattleSystem : MonoBehaviour
 
   [SerializeField] Deck deck;
   [SerializeField] Hand hand;
-  [SerializeField] EnemyGenerator enemyGenerator; 
+  [SerializeField] EnemyGenerator enemyGenerator;
 
   // 外部から参照できるようにするプロパティを作る（Read-Only）
   public BattlePlayerDrawState PlayerDrawState => playerDrawState;
