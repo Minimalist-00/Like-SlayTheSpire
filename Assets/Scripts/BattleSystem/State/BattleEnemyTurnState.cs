@@ -10,6 +10,10 @@ public class BattleEnemyTurnState : BattleStateBase
   {
     // Enemyの行動
     Debug.Log("Battle Enemy Turn State");
+    foreach (var enemy in Owner.EnemyManager.EnemyList)
+    {
+      enemy.Action(Owner.Player);
+    }
 
     // Playerのターンに戻る
     Owner.ChangeState(Owner.PlayerDrawState);

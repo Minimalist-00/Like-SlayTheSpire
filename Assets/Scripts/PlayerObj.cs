@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PlayerObj : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  [SerializeField] int hp;
 
-    // Update is called once per frame
-    void Update()
+  public int HP => hp;
+
+  public void Damage(int damage)
+  {
+    hp -= damage;
+    if (hp <= 0)
     {
-        
+      // TODO: Game Over
+      Debug.Log("Game Over");
     }
+  }
 }

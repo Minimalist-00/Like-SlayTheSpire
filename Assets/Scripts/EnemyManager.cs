@@ -5,9 +5,11 @@ public class EnemyManager : MonoBehaviour
 {
   List<EnemyObj> list = new List<EnemyObj>();
 
+  public List<EnemyObj> EnemyList => list;
+
   public void AddEnemy(EnemyObj enemy)
   {
     list.Add(enemy);
   }
-  
+
 }

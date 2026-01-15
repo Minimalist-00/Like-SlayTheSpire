@@ -19,7 +19,6 @@ public class Hand : MonoBehaviour
   public void RemoveCard(CardObj card)
   {
     cardList.Remove(card);
-    // card.gameObject.SetActive(false);
     ArrangeCards();
   }
 
