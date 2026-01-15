@@ -8,6 +8,7 @@ public class Deck : MonoBehaviour
   [SerializeField] Hand hand;
   List<CardObj> cardList = new List<CardObj>();
   public bool IsEmpty => cardList.Count == 0;
+  public List<CardObj> CardList => cardList;
 
   public void Setup()
   {

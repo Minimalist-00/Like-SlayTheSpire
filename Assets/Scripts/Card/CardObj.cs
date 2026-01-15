@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using TMPro;
+using JetBrains.Annotations;
 
 public class CardObj : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 // MonoBehaviourクラスの継承、IDragHandlerインターフェースの実装
@@ -14,10 +15,18 @@ public class CardObj : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragH
 
   CanvasGroup canvasGroup;
   public UnityAction OnEndDragAction;
+  public UnityAction<CardObj> OnUseAction;
 
   void Awake()
   {
     canvasGroup = GetComponent<CanvasGroup>();
+  }
+
+  public void Use(EnemyObj enemy)
+  {
+    // todo カード効果が固定されている
+    enemy.Damage(4);
+    OnUseAction?.Invoke(this);
   }
 
   // カードのドラッグを開始した時にRaycast（当たり判定）を止める

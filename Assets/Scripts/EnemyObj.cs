@@ -3,9 +3,19 @@ using UnityEngine.EventSystems;
 
 public class EnemyObj : MonoBehaviour, IDropHandler
 {
-  // カードをドロップした時にログを出す
+  [SerializeField] int hp;
   public void OnDrop(PointerEventData eventData)
   {
-    Debug.Log("ドロップされた");
+    CardObj cardObj = eventData.pointerDrag.GetComponent<CardObj>();
+    cardObj.Use(this);
+  }
+
+  public void Damage(int damage)
+  {
+    hp -= damage;
+    if (hp <= 0)
+    {
+      Destroy(gameObject);
+    }
   }
 }

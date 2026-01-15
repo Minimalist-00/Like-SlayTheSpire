@@ -15,6 +15,14 @@ public class Hand : MonoBehaviour
     cardObj.OnEndDragAction += ArrangeCards;
   }
 
+  // 手札からカードを捨てる
+  public void RemoveCard(CardObj card)
+  {
+    cardList.Remove(card);
+    // card.gameObject.SetActive(false);
+    ArrangeCards();
+  }
+
   // 手札に加えられたカードを整列させる
   public void ArrangeCards()
   {
