@@ -5,6 +5,7 @@ public class EnemyObj : MonoBehaviour
 {
   [SerializeField] int hp;
   [SerializeField] int at;
+  public int Hp => hp;
 
   public void Action(PlayerObj player)
   {

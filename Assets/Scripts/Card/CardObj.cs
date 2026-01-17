@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using System.Reflection;
-
 public class CardObj : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 // MonoBehaviourクラスの継承、IDragHandlerインターフェースの実装
 {
@@ -39,7 +38,7 @@ public class CardObj : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragH
     if (cardData.CardType == CardType.Defense)
     {
       Debug.Log("防御カードを使ったよ！");
-      player.Defense(cardData.Defense);
+      player.AddDefense(cardData.Defense);
     }
     OnUseAction?.Invoke(this); // 登録したアクションを呼び出す
   }
@@ -57,6 +56,7 @@ public class CardObj : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragH
   // カードのドラッグを開始した時にRaycast（当たり判定）を止める
   public void OnBeginDrag(PointerEventData eventData)
   {
+    Debug.Log("ドラッグ開始");
     canvasGroup.blocksRaycasts = false;
   }
 

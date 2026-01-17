@@ -17,6 +17,8 @@ public class EnemyGenerator : MonoBehaviour
     var enemy = Instantiate(enemyPrefab, parent);
     enemy.transform.localPosition = Vector3.zero;
     enemyManager.AddEnemy(enemy);
+    EnemyInfoUI enemyInfoUI = FindObjectOfType<EnemyInfoUI>();
+    enemyInfoUI.SetEnemy(enemy);
     return enemy;
   }
 }

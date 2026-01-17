@@ -6,7 +6,8 @@ public class PlayerObj : MonoBehaviour
 {
   [SerializeField] int hp;
   [SerializeField] int defense = 0;
-  public int HP => hp;
+  public int Hp => hp;
+  public int Defense => defense;
 
   public void Damage(int damage)
   {
@@ -33,9 +34,8 @@ public class PlayerObj : MonoBehaviour
     }
   }
 
-  public void Defense(int defense)
+  public void AddDefense(int defense)
   {
-    // 1ターン限定で`defense`分の防御を付与する
     this.defense += defense;
   }
 }
