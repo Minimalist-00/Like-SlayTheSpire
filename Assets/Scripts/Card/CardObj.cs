@@ -14,14 +14,18 @@ public class CardObj : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragH
   CanvasGroup canvasGroup;
   public UnityAction OnEndDragAction;
   public UnityAction<CardObj> OnUseAction;
+  PlayerObj player;
 
-
+  void Start()
+  {
+    player = FindObjectOfType<PlayerObj>();
+  }
   void Awake()
   {
     canvasGroup = GetComponent<CanvasGroup>();
   }
 
-  public void Use(EnemyObj enemy) //todo: PlayerObjを引数に加えるようにする
+  public void Use(EnemyObj enemy)
   {
     // カード効果がAttackの時の処理
     if (cardData.CardType == CardType.Attack)
@@ -32,7 +36,7 @@ public class CardObj : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragH
     if (cardData.CardType == CardType.Defense)
     {
       Debug.Log("防御カードを使ったよ！");
-      // player.Defense(cardData.Defense); //todo: プレイヤーに防御を付与するスクリプトの作成
+      player.Defense(cardData.Defense);
     }
     OnUseAction?.Invoke(this); // 登録したアクションを呼び出す
   }
