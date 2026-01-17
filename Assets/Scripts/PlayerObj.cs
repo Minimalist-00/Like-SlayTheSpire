@@ -10,17 +10,22 @@ public class PlayerObj : MonoBehaviour
 
   public void Damage(int damage)
   {
+    // 防御があるときの処理
     if (defense > 0)
     {
       defense -= damage;
+      // 防御値を超過するときの処理
       if (defense < 0)
       {
-        hp -= Math.Abs(defense); // 防御に対して超過ダメージはHPに反映する（絶対値にした）
+        hp += defense; // 防御に対して超過ダメージはHPに反映する
         defense = 0;
       }
-      return;
     }
-    hp -= damage;
+    // 防御がないときの処理
+    else
+    {
+      hp -= damage;
+    }
     if (hp <= 0)
     {
       // TODO: Game Over

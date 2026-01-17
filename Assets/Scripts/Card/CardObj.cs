@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using System.Reflection;
 
 public class CardObj : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 // MonoBehaviourクラスの継承、IDragHandlerインターフェースの実装
@@ -15,17 +16,19 @@ public class CardObj : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragH
   public UnityAction OnEndDragAction;
   public UnityAction<CardObj> OnUseAction;
   PlayerObj player;
+  EnemyObj enemy;
 
   void Start()
   {
     player = FindObjectOfType<PlayerObj>();
+    enemy = FindObjectOfType<EnemyObj>();
   }
   void Awake()
   {
     canvasGroup = GetComponent<CanvasGroup>();
   }
 
-  public void Use(EnemyObj enemy)
+  public void Use()
   {
     // カード効果がAttackの時の処理
     if (cardData.CardType == CardType.Attack)
@@ -66,8 +69,8 @@ public class CardObj : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragH
   // カードのドラッグを終えた時に元の位置に戻す
   public void OnEndDrag(PointerEventData eventData)
   {
-    canvasGroup.blocksRaycasts = true;
+    canvasGroup.blocksRaycasts = true; // 当たり判定をもとに戻す
+    Use();
     OnEndDragAction?.Invoke();
   }
-
 }
