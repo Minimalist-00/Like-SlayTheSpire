@@ -11,6 +11,7 @@ public class BattleSetupState : BattleStateBase
     // 先にDeckを初期化
     Owner.Deck.Setup();
     Owner.EnemyGenerator.Setup();
+    Debug.Log("Battle Setup");
 
     foreach (var card in Owner.Deck.CardList)
     {

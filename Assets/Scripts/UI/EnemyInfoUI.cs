@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class EnemyInfoUI : MonoBehaviour
 {
-  [SerializeField] Text hpText;
+  [SerializeField] TextMeshProUGUI hpText;
   EnemyObj enemy;
   public void SetEnemy(EnemyObj enemy)
   {

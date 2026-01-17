@@ -1,15 +1,16 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using System.Reflection;
+using UnityEngine.UI;
 public class CardObj : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 // MonoBehaviourクラスの継承、IDragHandlerインターフェースの実装
 {
-  [SerializeField] Text nameText;
-  [SerializeField] Text descriptionText;
+  [SerializeField] TextMeshProUGUI nameText;
+  [SerializeField] TextMeshProUGUI descriptionText;
   [SerializeField] Image icon;
-  [SerializeField] Text costText;
+  [SerializeField] TextMeshProUGUI costText;
   CardData cardData;
   CanvasGroup canvasGroup;
   public UnityAction OnEndDragAction;

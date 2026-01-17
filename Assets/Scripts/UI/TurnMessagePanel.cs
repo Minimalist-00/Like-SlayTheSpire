@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class TurnMessagePanel : MonoBehaviour
 {
   [SerializeField] GameObject panel;
-  [SerializeField] Text messageText;
+  [SerializeField] TextMeshProUGUI messageText;
   void Start()
   {
     ShowMessage("あなたのターンです");
