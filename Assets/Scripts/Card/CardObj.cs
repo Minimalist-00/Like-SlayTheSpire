@@ -29,6 +29,15 @@ public class CardObj : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragH
     OnUseAction?.Invoke(this);
   }
 
+  // カードの中身をセットする
+  public void SetCardData(CardData data)
+  {
+    nameText.text = data.Name;
+    descriptionText.text = data.Description;
+    icon.sprite = data.Icon;
+    costText.text = data.Cost.ToString();
+  }
+
   // カードのドラッグを開始した時にRaycast（当たり判定）を止める
   public void OnBeginDrag(PointerEventData eventData)
   {
