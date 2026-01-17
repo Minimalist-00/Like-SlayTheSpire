@@ -30,7 +30,7 @@ public class Hand : MonoBehaviour
       // 中央を0にする
       float center = (cardList.Count - 1) / 2f;
       // カードの間隔
-      float gap = 100f;
+      float gap = 150f;
       // カードの位置
       float x = (i - center) * gap;
       cardList[i].transform.localPosition = new Vector3(x, 0, 0); //localPositionは親の位置が基準
