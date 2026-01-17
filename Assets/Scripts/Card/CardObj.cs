@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
-using TMPro;
-using JetBrains.Annotations;
 
 public class CardObj : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 // MonoBehaviourクラスの継承、IDragHandlerインターフェースの実装
@@ -12,26 +10,37 @@ public class CardObj : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragH
   [SerializeField] Text descriptionText;
   [SerializeField] Image icon;
   [SerializeField] Text costText;
-
+  CardData cardData;
   CanvasGroup canvasGroup;
   public UnityAction OnEndDragAction;
   public UnityAction<CardObj> OnUseAction;
+
 
   void Awake()
   {
     canvasGroup = GetComponent<CanvasGroup>();
   }
 
-  public void Use(EnemyObj enemy)
+  public void Use(EnemyObj enemy) //todo: PlayerObjを引数に加えるようにする
   {
-    // todo カード効果が固定されている
-    enemy.Damage(4);
-    OnUseAction?.Invoke(this);
+    // カード効果がAttackの時の処理
+    if (cardData.CardType == CardType.Attack)
+    {
+      enemy.Damage(cardData.Attack);
+    }
+
+    if (cardData.CardType == CardType.Defense)
+    {
+      Debug.Log("防御カードを使ったよ！");
+      // player.Defense(cardData.Defense); //todo: プレイヤーに防御を付与するスクリプトの作成
+    }
+    OnUseAction?.Invoke(this); // 登録したアクションを呼び出す
   }
 
   // カードの中身をセットする
   public void SetCardData(CardData data)
   {
+    cardData = data; // メンバ変数に入れておく（後で使うからね）
     nameText.text = data.Name;
     descriptionText.text = data.Description;
     icon.sprite = data.Icon;
